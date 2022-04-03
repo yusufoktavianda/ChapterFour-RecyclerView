@@ -6,15 +6,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import binar.academy.recycleviewsample.FirstFragmentDirections
 import binar.academy.recycleviewsample.R
+import binar.academy.recycleviewsample.databinding.ItemUserBinding
 
 
 class UserAdapter(private val user: List<User>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
-
     class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val usernameTextView: TextView = view.findViewById(R.id.username_textview)
         val phoneNumberTextView: TextView = view.findViewById(R.id.phonenumber_textview)
@@ -22,8 +21,10 @@ class UserAdapter(private val user: List<User>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
-        return UserViewHolder(view)
+//        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+//        return UserViewHolder(view)
+       val  binding =ItemUserBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return UserViewHolder(binding.root)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
